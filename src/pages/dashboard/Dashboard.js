@@ -1,7 +1,10 @@
 import React from 'react'
+import { BsHeader } from '../../components/bs-header/BsHeader'
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div className='dashboard'>
+      <BsHeader />
+    </div>
   )
 }

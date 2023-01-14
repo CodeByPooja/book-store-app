@@ -28,3 +28,10 @@
   outline: none;
   box-shadow: none !important;
 }
+
+
+/* Navbar style */
+.navbar.navbar-expand.navbar-dark {
+  background-color: var(--primary) !important;
+
+}

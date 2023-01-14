@@ -28,7 +28,7 @@ export const Signup = () => {
           <Form.Label>Username</Form.Label>
           <Form.Control
             onChange={(e) => onFormChange(e, "Username")}
-            defaultValue={signupForm.email}
+            defaultValue={signupForm.username}
             type="text"
             placeholder="Enter Username"
           />
@@ -66,7 +66,7 @@ export const Signup = () => {
           Sign-up
         </Button>
         <Form.Label className="mt-2">
-          Already Have a account ? <Link to="/">Click here</Link> to login.
+          Already Have a account ? <Link to="/">click here</Link> to login.
         </Form.Label>
       </Form>
     </div>

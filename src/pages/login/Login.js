@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // https://getbootstrap.com/docs/4.2/utilities/flex/
 export const Login = () => {
+  const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
@@ -19,6 +20,7 @@ export const Login = () => {
     e.preventDefault();
 
     console.log("onLoginSubmit", loginForm);
+    navigate('/dashboard');
   };
   return (
     <div className="d-flex justify-content-center align-items-center vh-100"
@@ -55,7 +57,7 @@ export const Login = () => {
         <Button variant="primary" type="submit" className="w-100">
           Login
         </Button>
-        <p className="mt-2">Don't have a account ? <Link to="/signup">Sign-up</Link> Here.</p>
+        <p className="mt-2">Don't have a account ? <Link to="/signup">click here</Link> to signup.</p>
       </Form>
     </div>
   );
