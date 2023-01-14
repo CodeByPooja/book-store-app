@@ -1,8 +1,8 @@
 import "./App.css";
-import { Login } from "./login/Login";
-import { Signup } from "./signup/Signup";
+import { Login } from "./pages/login/Login";
+import { Signup } from "./pages/signup/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NoPage } from "./no-page/NoPage";
+import { NoPage } from "./pages/no-page/NoPage";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
+// https://getbootstrap.com/docs/4.2/utilities/flex/
 export const Login = () => {
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -20,14 +21,10 @@ export const Login = () => {
     console.log("onLoginSubmit", loginForm);
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+    <div className="d-flex justify-content-center align-items-center vh-100"
     >
-      <Form onSubmit={onLoginSubmit} style={{ width: "200px" }}>
+      <Form onSubmit={onLoginSubmit} className='w-55'>
+        <h3 className="text-center">Login</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -55,9 +52,10 @@ export const Login = () => {
             label="Accept terms and conditions"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="w-100">
           Login
         </Button>
+        <p className="mt-2">Don't have a account ? <Link to="/signup">Sign-up</Link> Here.</p>
       </Form>
     </div>
   );
