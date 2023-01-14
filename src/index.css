@@ -1,6 +1,7 @@
 :root {
   --primary: #A03037;
   --primary-lighter: #C03A2B;
+  --bg-secondary: #F5F5F5;
   --white: #fff;
 }
 
@@ -28,7 +29,6 @@
   outline: none;
   box-shadow: none !important;
 }
-
 
 /* Navbar style */
 .navbar.navbar-expand.navbar-dark {
