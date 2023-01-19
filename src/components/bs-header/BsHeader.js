@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Nav, NavDropdown } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,8 +6,19 @@ import { useNavigate } from "react-router-dom";
 import Education from "./../../images/education.svg";
 import Carts from "./../../images/shopping-cart.svg";
 export const BsHeader = () => {
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (window !== undefined) {
+      const creds = window.localStorage.getItem("creds");
+      const user = JSON.parse(creds);
+      setUserData(user);
+    }
+  }, []);
+  const onLogout = () => {
+    window.localStorage.removeItem("creds");
+    navigate("/");
+  };
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -27,19 +38,20 @@ export const BsHeader = () => {
         </Container>
         <Nav className="me-auto">
           <NavDropdown title="Account" id="collasible-nav-dropdown">
+            <NavDropdown.Item>Login As : {userData?.email}</NavDropdown.Item>
             <NavDropdown.Item>Change Password</NavDropdown.Item>
             <NavDropdown.Item>Profile</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item onClick={() => navigate('/')}>Logout</NavDropdown.Item>
+            <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link className="d-flex flex-column align-items-center">
-              <img
-                alt="carts"
-                src={Carts}
-                width="15"
-                height="15"
-                className="align-top"
-              />
+            <img
+              alt="carts"
+              src={Carts}
+              width="15"
+              height="15"
+              className="align-top"
+            />
           </Nav.Link>
         </Nav>
       </Navbar>

@@ -20,6 +20,7 @@ export const Login = () => {
     e.preventDefault();
 
     console.log("onLoginSubmit", loginForm);
+    window.localStorage.setItem('creds', JSON.stringify(loginForm))
     navigate('/dashboard');
   };
   return (
